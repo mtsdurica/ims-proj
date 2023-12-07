@@ -1,7 +1,9 @@
-#include <iostream>
+#include "Skicentrum.h"
+#include "utils.h"
+#include <cstdlib>
 
 int main(int argc, char *argv[])
 {
-    std::cout << "Hello World!" << std::endl;
-    return 0;
+    Skicentrum::Simulate(parseArgs(argc, argv));
+    return EXIT_SUCCESS;
 }
