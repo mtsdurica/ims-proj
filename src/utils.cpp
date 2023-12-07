@@ -1,4 +1,12 @@
-#include "utils.h"
+/**
+ * @file utils.cpp
+ * @author Romana Ďuráčiová (xdurac01)
+ * @author Matúš Ďurica (xduric06)
+ * @brief Contains definition of utility functions
+ *
+ */
+
+#include "utils.hpp"
 
 #include <cstdlib>
 #include <exception>
@@ -7,9 +15,10 @@
 #include <simlib.h>
 #include <tuple>
 
-simlib3::Histogram t("Arrival of Skiers", 0, 30 * 60, 14);
-simlib3::Histogram h("asd", 0, 1, 2);
-
+/**
+ * @brief Print help
+ *
+ */
 void printHelp()
 {
     std::cout << "Made by Romana Ďuráčiová (xdurac01) & Matúš Ďurica (xduric06) | VUT FIT v Brně 2023" << std::endl;
@@ -58,6 +67,10 @@ void printHelp()
     std::cout << "-h | --help                      - Prints help" << std::endl;
 }
 
+/**
+ * @brief Print simulation begin
+ *
+ */
 void printSimulationBegin()
 {
     std::cout << "+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+" << std::endl;
@@ -66,6 +79,11 @@ void printSimulationBegin()
     std::cout << std::endl;
 }
 
+/**
+ * @brief Print start of simulation run
+ *
+ * @param iteration Number of simulation run iteration
+ */
 void printSimulationRunStart(const int iteration)
 {
     std::cout << "+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+" << std::endl;
@@ -73,6 +91,11 @@ void printSimulationRunStart(const int iteration)
     std::cout << "+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+" << std::endl;
 }
 
+/**
+ * @brief Print end of simulation run
+ *
+ * @param iteration Number of simulation run iteration
+ */
 void printSimulationRunEnd(const int iteration)
 {
 
@@ -82,6 +105,10 @@ void printSimulationRunEnd(const int iteration)
     std::cout << std::endl;
 }
 
+/**
+ * @brief Print simulation end
+ *
+ */
 void printSimulationEnd()
 {
 
@@ -90,16 +117,27 @@ void printSimulationEnd()
     std::cout << "+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+" << std::endl;
 }
 
+/**
+ * @brief Parse command-line arguments
+ *
+ * @param argc Number of command-line arguments
+ * @param argv Array containing command-line arguments
+ * @return std::tuple<int, int, int, int, int, int> skiliftGap, skiers, iterations, shiftTime, strict, numOfCars
+ */
 std::tuple<int, int, int, int, int, int> parseArgs(int argc, char **argv)
 {
     int opt, strict = -1, skiliftGap = -1, skiers = -1, iterations = -1, shiftTime = -1, numOfCars = -1;
     opterr = 0;
     static const char *shortOpts = "r:g:c:s:i:t:h";
     static const struct option longOpts[] = {
-        {"skilift-gap", required_argument, nullptr, 'g'},  {"skiers", required_argument, nullptr, 's'},
-        {"strict", required_argument, nullptr, 'r'},       {"iterations", required_argument, nullptr, 'i'},
-        {"shift-time", required_argument, nullptr, 't'},   {"help", no_argument, nullptr, 'h'},
-        {"skilift-cars", required_argument, nullptr, 'c'}, {nullptr, 0, nullptr, 0},
+        {"skilift-gap", required_argument, nullptr, 'g'},
+        {"skiers", required_argument, nullptr, 's'},
+        {"strict", required_argument, nullptr, 'r'},
+        {"iterations", required_argument, nullptr, 'i'},
+        {"shift-time", required_argument, nullptr, 't'},
+        {"help", no_argument, nullptr, 'h'},
+        {"skilift-cars", required_argument, nullptr, 'c'},
+        {nullptr, 0, nullptr, 0},
 
     };
     while ((opt = getopt_long(argc, argv, shortOpts, longOpts, nullptr)) != -1)

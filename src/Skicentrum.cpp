@@ -1,14 +1,31 @@
-#include "Skicentrum.h"
+/**
+ * @file Skicentrum.cpp
+ * @author Romana Ďuráčiová (xdurac01)
+ * @author Matúš Ďurica (xduric06)
+ * @brief Contains definition of class Skicentrum methods
+ *
+ */
 
-#include "Shift.h"
-#include "Stats.h"
-#include "utils.h"
-#include <ctime>
 #include <simlib.h>
+#include <ctime>
 #include <tuple>
 
+#include "Skicentrum.hpp"
+#include "Shift.hpp"
+#include "Stats.hpp"
+#include "utils.hpp"
+
+/**
+ * @brief Destroy the Skicentrum::Skicentrum object
+ *
+ */
 Skicentrum::~Skicentrum() = default;
 
+/**
+ * @brief Simulation entry point method
+ *
+ * @param params Parsed command-line arguments
+ */
 void Skicentrum::Simulate(std::tuple<int, int, int, int, int, int> params)
 {
     int skiliftGap, skiers, iterations, shiftTime, strict, numOfCars;
