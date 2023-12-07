@@ -1,11 +1,13 @@
 CXX			:= g++
+
 CXXFLAGS	:= -std=c++20 -Werror -Wall -Wpedantic -g -O2
 TARGET		:= skicentrum-sim
+
 BUILD		:= ./build
 OBJ_DIR 	:= $(BUILD)/objects
 SRC_FILES 	:=						\
 	$(wildcard src/*.cpp)			\
-	
+
 OBJECTS 	:= $(SRC_FILES:%.cpp=$(OBJ_DIR)/%.o)
 
 .PHONY: all clean build run
@@ -18,6 +20,7 @@ $(OBJ_DIR)/%.o: %.cpp
 
 ./$(TARGET): $(OBJECTS)
 	mkdir -p $(@D)
+
 	$(CXX) $(CXXFLAGS) -o $@ $^ -lsimlib 
 
 build:
