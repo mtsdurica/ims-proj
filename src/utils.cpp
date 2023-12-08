@@ -24,7 +24,7 @@ void printHelp()
     std::cout << "Made by Romana Ďuráčiová (xdurac01) & Matúš Ďurica (xduric06) | VUT FIT v Brně 2023" << std::endl;
     std::cout << std::endl;
     std::cout << "\033[1mNAME\033[0m" << std::endl;
-    std::cout << "skicentrum-sim\t - Simulation of skipark Ski Kraliky" << std::endl;
+    std::cout << "skicentrum-sim\t - Simulation of skipark Ski Králiky" << std::endl;
     std::cout << std::endl;
     std::cout << "\033[1mSYNOPSIS\033[0m" << std::endl;
     std::cout << "./skicentrum-sim\t[-h | --help] [-i iterations | --iterations iterations]" << std::endl
