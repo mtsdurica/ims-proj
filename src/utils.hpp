@@ -1,3 +1,11 @@
+/**
+ * @file utils.hpp
+ * @author Romana Ďuráčiová (xdurac01)
+ * @author Matúš Ďurica (xduric06)
+ * @brief Contains utility declarations
+ *
+ */
+
 #pragma once
 
 #include <tuple>
@@ -8,10 +16,10 @@
 #define DEFAULT_NUM_OF_ITERATIONS 5
 #define DEFAULT_STRICT_VALUE -1
 #define DEFAULT_NUM_OF_CARS 48
-#define DEFAULT_SHIFT_DURATION (7*60*60)
-#define SKILIFT_STOPPED_MARGIN (10*60)
+#define DEFAULT_SHIFT_DURATION (7 * 60 * 60)
+#define SKILIFT_STOPPED_MARGIN (10 * 60)
 #define SIMULATION_START 0
-#define SIMULATION_END (24*60*60)
+#define SIMULATION_END (24 * 60 * 60)
 
 void printHelp();
 

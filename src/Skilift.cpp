@@ -1,18 +1,44 @@
-#include "SkiliftCars.h"
-#include "Timer.h"
-#include "utils.h"
+/**
+ * @file Skilift.cpp
+ * @author Romana Ďuráčiová (xdurac01)
+ * @author Matúš Ďurica (xduric06)
+ * @brief Contains definition of class Skilift methods
+ *
+ */
+
 #include <simlib.h>
 
-SkiliftCars::SkiliftCars(class Stats *stats, simlib3::Queue *turnstileQueue, const int shiftTime, const int skiliftGap,
-                         const int strictValue)
+#include "Skilift.hpp"
+#include "Timer.hpp"
+#include "utils.hpp"
+
+/**
+ * @brief Construct a new Skilift:: Skilift object
+ *
+ * @param stats Pointer to the statistics
+ * @param turnstileQueue Turnstile Queue pointer
+ * @param shiftTime Shift duration (in seconds)
+ * @param skiliftGap Gap between each skilift car (in seconds)
+ * @param strictValue Strict seats to be used
+ */
+Skilift::Skilift(class Stats *stats, simlib3::Queue *turnstileQueue, const int shiftTime, const int skiliftGap,
+                 const int strictValue)
     : simlib3::Process(), Statistics(stats), TurnstileQueue(turnstileQueue), ShiftTime(shiftTime),
       SkiliftGap(skiliftGap), StrictValue(strictValue)
 {
 }
 
-SkiliftCars::~SkiliftCars() = default;
+/**
+ * @brief Destroy the Skilift::Skilift object
+ *
+ */
+Skilift::~Skilift() = default;
 
-void SkiliftCars::Behavior()
+/**
+ * @brief Behavior of the Skilift process
+ *
+ */
+void Skilift::Behavior()
 {
     // Cant fix memory leak, whatever done, it just keeps segfaulting
     (new Timer(this))->Activate(Time + (this->ShiftTime - SKILIFT_STOPPED_MARGIN));
